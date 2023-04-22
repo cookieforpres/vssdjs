@@ -28,7 +28,7 @@ describe('TCPClient', () => {
   it('should fail to read from a TCP server', async () => {
     const client = new TCPClient('localhost', 1337);
     try {
-      const result = await client.read('test');
+      await client.read('test');
     } catch (error) {
       expect(error).toBeDefined();
     }

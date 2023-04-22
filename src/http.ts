@@ -14,9 +14,9 @@ class HTTPClient {
   }
 
   public async start(): Promise<boolean> {
-    let path = '/__ping__';
+    const path = '/__ping__';
     try {
-      let response = await axios.get(`${this.url}${path}`);
+      const response = await axios.get(`${this.url}${path}`);
       return response.status === 200;
     } catch (error) {
       throw error;
@@ -24,9 +24,9 @@ class HTTPClient {
   }
 
   public async write(name: string, data: string): Promise<boolean> {
-    let path = `/write`;
+    const path = `/write`;
     try {
-      let response = await axios.post(`${this.url}${path}`, { name, data });
+      const response = await axios.post(`${this.url}${path}`, { name, data });
       return response.status === 200;
     } catch (error) {
       throw error;
@@ -34,9 +34,9 @@ class HTTPClient {
   }
 
   public async read(name: string): Promise<string> {
-    let path = `/read/${name}`;
+    const path = `/read/${name}`;
     try {
-      let response = await axios.get(`${this.url}${path}`);
+      const response = await axios.get(`${this.url}${path}`);
       return response.data;
     } catch (error) {
       throw error;
@@ -44,9 +44,9 @@ class HTTPClient {
   }
 
   public async delete(name: string): Promise<boolean> {
-    let path = `/delete/${name}`;
+    const path = `/delete/${name}`;
     try {
-      let response = await axios.delete(`${this.url}${path}`);
+      const response = await axios.delete(`${this.url}${path}`);
       return response.status === 200;
     } catch (error) {
       throw error;
